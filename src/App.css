@@ -11,6 +11,8 @@ body {
 }
 
 #drum-machine {
+  transform: scale(1);
+  transform-origin: 0 0;
   background: #ecf0f1;
   width: 40rem;
   height: 40rem;
