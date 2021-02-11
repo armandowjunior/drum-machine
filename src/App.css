@@ -135,7 +135,7 @@ button:active {
 @media (max-width: 640px) {
   #drum-machine {
     max-width: 20rem;
-    margin: 7.5rem auto;
+    margin: 5rem auto;
   }
 
   #title {
