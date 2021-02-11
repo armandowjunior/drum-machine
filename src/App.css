@@ -13,7 +13,7 @@ body {
 #drum-machine {
   background: #ecf0f1;
   max-width: 40rem;
-  margin: 10rem auto;
+  margin: 5rem auto;
   padding-bottom: 1rem;
   border-radius: 0.75rem;
   display: flex;
@@ -46,7 +46,8 @@ span {
   display: flex;
   justify-content: center;
   align-items: center;
-  font-size: 2rem;
+  font-size: 1.75rem;
+  padding: 0.25rem;
   width: 100%;
   margin: 2rem 2rem;
 }
@@ -70,16 +71,71 @@ button:active {
   border-style: none;
 }
 
+.volume-wrapper {
+  color: #052f47;
+  font-size: 1.25rem;
+  margin: 1rem;
+  border: 1px solid #052f47;
+  border-radius: 0.75rem;
+  padding: 1rem;
+  width: 45%;
+  text-align: center;
+}
+
+.speed-wrapper {
+  color: #052f47;
+  font-size: 1.25rem;
+  margin: 1rem;
+  border: 1px solid #052f47;
+  border-radius: 0.75rem;
+  padding: 1rem;
+  width: 45%;
+  text-align: center;
+}
+
+#recording-title {
+  color: #052f47;
+  width: 20%;
+  font-size: 1.25rem;
+  padding: 1rem;
+}
+
+#recording {
+  padding: 1rem;
+  background-color: #c6cfcf;
+  width: 60%;
+  border-radius: 0.5rem;
+}
+
+.controls-wrapper {
+  padding: 1rem;
+  width: 20%;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-evenly;
+}
+
+.controls {
+  font-weight: 600;
+  width: 2.5rem;
+  height: 2.5rem;
+  border-radius: 0.25rem;
+  background: #7f8c8d;
+  color: #052f47;
+  box-shadow: 0.25rem 0.25rem 0.25rem #26c5c8;
+  border: none;
+  outline: none;
+}
+
 .active {
   background: #26c5c8;
-  height: 7.9rem;
   box-shadow: 0 0 0;
 }
 
-@media (max-width: 480px) {
+@media (max-width: 640px) {
   #drum-machine {
     max-width: 20rem;
-    margin: 15rem auto;
+    margin: 7.5rem auto;
   }
 
   #title {
@@ -102,9 +158,55 @@ button:active {
     margin: 0.25rem;
   }
 
+  .volume-wrapper {
+    color: #052f47;
+    font-size: 1rem;
+    border: 1px solid #052f47;
+    border-radius: 0.5rem;
+    width: 40%;
+  }
+
+  .speed-wrapper {
+    color: #052f47;
+    font-size: 1rem;
+    border: 1px solid #052f47;
+    border-radius: 0.5rem;
+    width: 40%;
+  }
+
+  input {
+    overflow: hidden;
+    width: 100%;
+  }
+
+  #recording-title {
+    width: 100%;
+    padding: 0.5rem;
+    font-size: 1rem;
+    text-align: center;
+  }
+
+  #recording {
+    background-color: #c6cfcf;
+    width: 90%;
+    border-radius: 0.25rem;
+    font-size: 1rem;
+  }
+
+  .controls-wrapper {
+    padding: 1rem;
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-evenly;
+  }
+
+  .controls {
+    width: 5rem;
+  }
+
   .active {
     background: #26c5c8;
-    height: 3.9rem;
     box-shadow: 0 0 0;
   }
 }

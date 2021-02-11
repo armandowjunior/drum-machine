@@ -4,6 +4,44 @@ import Drum from "./components/Drum-UI";
 
 function App() {
   const [display, setDisplay] = useState("Press a Key!");
+  const [volume, setVolume] = useState(1);
+  const [recording, setRecording] = useState("");
+  const [names, setNames] = useState("");
+  const [speed, setSpeed] = useState(0.5);
+
+  const clearAll = () => {
+    document.getElementById("clear").classList.add("active");
+    setTimeout(() => {
+      document.getElementById("clear").classList.remove("active");
+    }, 100);
+    setDisplay("Press a Key!");
+    setRecording("");
+    setNames("");
+  };
+
+  const playRecording = () => {
+    document.getElementById("play").classList.add("active");
+    setTimeout(() => {
+      document.getElementById("play").classList.remove("active");
+    }, 100);
+
+    let recordArray = recording.split(" ");
+    let namesArray = names.split(" ");
+    let index = 0;
+
+    const interval = setInterval(() => {
+      const sound = document.getElementById(recordArray[index]);
+      setDisplay(namesArray[index]);
+      sound.volume = volume;
+      sound.currentTime = 0;
+      sound.play();
+      index++;
+    }, speed * 600);
+    setTimeout(
+      () => clearInterval(interval),
+      (recordArray.length - 1) * speed * 600
+    );
+  };
 
   useEffect(() => {
     document.addEventListener("keydown", handleKeyPress);
@@ -43,18 +81,31 @@ function App() {
   const handleClick = (id, str) => () => {
     // Returns a function that executes another function
     const sound = document.getElementById(id);
-    setDisplay(str);
-    sound.currentTime = 0;
-    sound.play();
     sound.parentNode.classList.add("active");
     setTimeout(() => {
       sound.parentNode.classList.remove("active");
     }, 100);
+    setDisplay(str);
+    sound.volume = volume;
+    sound.currentTime = 0;
+    sound.play();
+    setRecording((prev) => prev + id + " ");
+    setNames((prev) => prev + str + " ");
   };
 
   return (
     <div className="App">
-      <Drum display={display} handleClick={handleClick} />
+      <Drum
+        display={display}
+        handleClick={handleClick}
+        setVolume={setVolume}
+        volume={volume}
+        playRecording={playRecording}
+        recording={recording}
+        clearAll={clearAll}
+        setSpeed={setSpeed}
+        speed={speed}
+      />
     </div>
   );
 }
